@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Pickup Lines</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        background-image: url('https://t3.ftcdn.net/jpg/03/95/00/10/360_F_395001009_kIG3PdUaFiujv6t0Rd0tdjfEghMW2Hrc.jpg'); /* Romantic background image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #333;
+    }
+    p {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Pickup Line for you</h1>
+    <p id="pickup-line" class="hidden"></p>
+    <button onclick="getPickupLine()">Click Here!</button>
+</div>
+
+<script>
+var pickupLines = [
+    "Do you believe in love at first sight, or should I walk by again?",
+    "Are you a magician? Because whenever I look at you, everyone else disappears.",
+    "Do you have a name, or can I call you mine?",
+    // Add more pickup lines here
+];
+
+function getPickupLine() {
+    var randomIndex = Math.floor(Math.random() * pickupLines.length);
+    var randomPickupLine = pickupLines[randomIndex];
+
+    var pickupLineElement = document.getElementById("pickup-line");
+    pickupLineElement.textContent = randomPickupLine;
+    pickupLineElement.classList.remove("hidden");
+    pickupLineElement.classList.add("active");
+    
+    setTimeout(function() {
+        pickupLineElement.classList.remove("active");
+        pickupLineElement.classList.add("hidden");
+    }, 3000); // Hide pickup line after 3 seconds
+}
+</script>
+
+</body>
+</html>
